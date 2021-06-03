@@ -4,9 +4,7 @@
 
 *Les fichiers de données se trouvent dans le dossier /src/main/resources
 
-*Les fonctions java permettant la lecture des fichiers de données se trouvent
-
-*respectivement dans :
+*Les fonctions java permettant la lecture des fichiers de données se trouvent respectivement dans :
         /src/main/java/com/agitex/climax/web/dao/ClientDAOCSV
         /src/main/java/com/agitex/climax/web/dao/ClientDAOXML
         /src/main/java/com/agitex/climax/web/dao/ClientDAOJSON
@@ -22,6 +20,6 @@
 *L'application est accessible à travers un navigateur à l'adresse:
     http::localhost:8181
 
-Pour d'éventuelles questions, je suis joignable aux contacts suivants:
+*Pour d'éventuelles questions, je suis joignable aux contacts suivants:
     TEL : +226 61 33 46 78
     Email : sanouabdramane5@gmail.com
