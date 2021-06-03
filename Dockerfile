@@ -1,4 +1,4 @@
-FROM openjdk:11-oraclelinux7
+FROM openjdk:11-jdk
 
 LABEL maintainer="sanouabdramane5@gmail.com"
 
