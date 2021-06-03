@@ -11,4 +11,3 @@ ARG JAR_FILE=target/climax-0.0.1-SNAPSHOT.jar
 ADD ${JAR_FILE} climax.jar
 
 ENTRYPOINT [ "java","-jar","/climax.jar" ]
-

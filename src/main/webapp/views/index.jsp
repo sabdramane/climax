@@ -2,13 +2,11 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="header.jsp" %>
-<%
-String ctxPath = request.getContextPath();
-%>
+
 	 <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h1 class="text-center">Rapports statistiques sur les données clients <%= ctxPath%> </h1>
+                <h1 class="text-center">Rapports statistiques sur les données clients </h1>
                 <hr/>
             </div>
         </div>
