@@ -1,0 +1,27 @@
+*Le projet a été développé avec spring boot basique
+
+*Il permet la lecture des données issues des fichiers de formats CSV,XML et JSON
+
+*Les fichiers de données se trouvent dans le dossier /src/main/resources
+
+*Les fonctions java permettant la lecture des fichiers de données se trouvent
+
+*respectivement dans :
+        /src/main/java/com/agitex/climax/web/dao/ClientDAOCSV
+        /src/main/java/com/agitex/climax/web/dao/ClientDAOXML
+        /src/main/java/com/agitex/climax/web/dao/ClientDAOJSON
+
+*Dans ces classes, j'ai implementé les fonctions d'enregistrement de données dans les fichiers
+
+*Le projet peut être packager avec la ligne de commande suivant:
+        mvn clean package
+
+*Le projet peut être exécuter avec la ligne de commande :
+        java -jar /target/climax-0.0.1-SNAPSHOT.jar
+
+*L'application est accessible à travers un navigateur à l'adresse:
+    http::localhost:8181
+
+Pour d'éventuelles questions, je suis joignable aux contacts suivants:
+    TEL : +226 61 33 46 78
+    Email : sanouabdramane5@gmail.com
