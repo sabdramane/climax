@@ -9,8 +9,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
     
-        <link rel="stylesheet" href="../css/bootstrap-4/css/bootstrap.min.css" >
-	    <script src="../css/bootstrap-4/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/css/bootstrap-4/css/bootstrap.min.css" >
+	    <script src="/css/bootstrap-4/js/bootstrap.min.js"></script>
         <title>Agitex-Climax</title>
     </head>
     <body>

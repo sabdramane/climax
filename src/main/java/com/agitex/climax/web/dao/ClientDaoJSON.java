@@ -1,22 +1,22 @@
 package com.agitex.climax.web.dao;
 
-import java.io.File;
+import java.io.BufferedReader;
+
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
 import com.agitex.climax.web.model.Client;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 
 
 public class ClientDaoJSON {
@@ -25,33 +25,40 @@ public class ClientDaoJSON {
     {
         ArrayList<Client> clients = new ArrayList<Client>();
         ObjectMapper obj =new ObjectMapper();
+
+        Resource resource = new ClassPathResource("/clients.json");
+        InputStream is;
+
         try {
-            JsonNode jsonNode = obj.readTree(new File("clients.json"));
-            
-            Iterator<JsonNode> elements= jsonNode.get("client").elements();
-            
-            while(elements.hasNext())
-            {
-                JsonNode jsonNode2 = elements.next();
-                String  nom = jsonNode2.get("nom").asText();
-                String prenom = jsonNode2.get("prenom").asText();
-                int age = jsonNode2.get("age").asInt();
-                String profession = jsonNode2.get("profession").asText();
-                int salaire = jsonNode2.get("salaire").asInt();;
-    
-                Client client = new Client(nom,prenom,age,profession,salaire);
-                clients.add(client);
-                // age =age+" " +" "+ jsonNode2.get("age").asInt();
-                // prenom =prenom+" " +" "+ jsonNode2.get("prenom").asText();
-                // nom =nom+" " +" "+ jsonNode2.get("nom").asText();
-            }
-        } catch (JsonProcessingException e) {
+                is = resource.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+
+                JsonNode jsonNode = obj.readTree(br);
+                
+                Iterator<JsonNode> elements= jsonNode.get("client").elements();
+
+                while(elements.hasNext())
+                {
+                    JsonNode jsonNode2 = elements.next();
+                    String  nom = jsonNode2.get("nom").asText();
+                    String prenom = jsonNode2.get("prenom").asText();
+                    int age = jsonNode2.get("age").asInt();
+                    String profession = jsonNode2.get("profession").asText();
+                    int salaire = jsonNode2.get("salaire").asInt();;
+        
+                    Client client = new Client(nom,prenom,age,profession,salaire);
+                    clients.add(client);
+                    // age =age+" " +" "+ jsonNode2.get("age").asInt();
+                    // prenom =prenom+" " +" "+ jsonNode2.get("prenom").asText();
+                    // nom =nom+" " +" "+ jsonNode2.get("nom").asText();
+                }
+        } catch (IOException e1) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            e1.printStackTrace();
         }
+            
+        
+
       return clients;
     }
 

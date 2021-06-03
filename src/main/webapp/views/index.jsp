@@ -2,17 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ include file="header.jsp" %>
+<%
+String ctxPath = request.getContextPath();
+%>
 	 <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h1 class="text-center">Rapports statistiques sur les données clients </h1>
+                <h1 class="text-center">Rapports statistiques sur les données clients <%= ctxPath%> </h1>
                 <hr/>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4  ">
                     <div class="card" style="width: 18rem;">
-                        <img src="../images/csvimg.png" class="card-img-top" alt="...">
+                        <img src="/images/csvimg.png" class="card-img-top" alt="...">
                         <div class="card-body">
                         <h5 class="card-title">Données CSV</h5>
                         <p class="card-text">Rapports statistiques sur des données de format CSV</p>
@@ -22,7 +25,7 @@
             </div>
             <div class="col-md-4  ">
                 <div class="card" style="width: 18rem;">
-                    <img src="../images/xmlimg.png" class="card-img-top" alt="...">
+                    <img src="/images/xmlimg.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Données XML</h5>
                         <p class="card-text">Rapports statistiques sur des données de format XML</p>
@@ -32,7 +35,7 @@
             </div>
             <div class="col-md-4  ">
                 <div class="card" style="width: 18rem;">
-                    <img src="../images/jsonimg.png" class="card-img-top" alt="...">
+                    <img src="/images/jsonimg.png" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Données JSON</h5>
                         <p class="card-text">Rapports statistiques sur des données de format json</p>

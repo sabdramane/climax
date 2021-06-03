@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-12 mb-2 mt-3" >
                 <a href="/csv/calcul-moyenne" class="btn btn-info">Calculer la moyenne de salaire</a>
-                <a href="/csv/nouveau-client" class="btn btn-info">Nouveau client</a>
+                <!-- <a href="/csv/nouveau-client" class="btn btn-info">Nouveau client</a> -->
             </div>
         </div>
         <div class="row">

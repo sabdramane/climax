@@ -1,13 +1,12 @@
 package com.agitex.climax.web.dao;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Reader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import com.agitex.climax.web.model.Client;
@@ -16,6 +15,9 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
+
 public class ClientDaoCSV {
 
     public void saveCSV(Client client)
@@ -39,10 +41,14 @@ public class ClientDaoCSV {
     {
         ArrayList<Client> clients = new ArrayList<Client>();
 
-        try {
-            Reader csvData = new FileReader("clients.csv");
+            Resource resource = new ClassPathResource("/clients.csv");
+            InputStream is;
             try {
-                CSVParser parser = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(csvData);
+                is = resource.getInputStream();
+                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+                // Reader csvData = new FileReader("/clients.csv");
+
+                CSVParser parser = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(br);
                
                 for(CSVRecord csvRecord : parser)
                 {
@@ -55,14 +61,13 @@ public class ClientDaoCSV {
                     Client client = new Client(nom,prenom,age,profession,salaire);
                     clients.add(client);
                 }
-            } catch (IOException e) {
+
+            } catch (IOException e1) {
                 // TODO Auto-generated catch block
-                e.printStackTrace();
+                e1.printStackTrace();
             }
-        } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+           
+
         return clients;
     }
 
